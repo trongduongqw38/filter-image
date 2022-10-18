@@ -38,10 +38,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
 		.then((filteredpath) => {
             res.status(200).sendFile(filteredpath);
             res.on("finish", () => deleteLocalFiles([filteredpath]));
-        })
-		.catch(() => {
-			return res.status(400).send({ message: "could not find image" });
-		});
+        });
     });
 
   //! END @TODO1
